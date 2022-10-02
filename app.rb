@@ -15,18 +15,12 @@ def caeser_cipher(text, key)
     }
     converted_text.map! { |num|
         if (num.kind_of? Integer) || (num.kind_of? Float)
-            num + key
+            (num + key) % 26
         else
             num
         end
     }
-    converted_text.map! { |num|
-        if num.to_i > 26
-            num - 26
-        else
-            num
-        end
-    }
+
     #for final conversion to caeser's code as an array then converted to string using "puts"
     converted_text.map! { |num|
         if num.kind_of? Integer
